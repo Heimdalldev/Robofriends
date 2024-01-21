@@ -14,7 +14,7 @@ function App() {
 	// }
 	const [robots, setRobots] = useState([])
 	const [searchfield, setSearchfield] = useState('')
-	
+
 
 // componentDidMount() {
 // 	fetch('https://jsonplaceholder.typicode.com/users')
@@ -25,7 +25,7 @@ useEffect(()=> {
 	fetch('https://jsonplaceholder.typicode.com/users')
 		.then(response => response.json())
 		.then(users => {setRobots(users)});
-	}, []) //only run if count changes
+	}, []) 
 
 	const onSearchChange = (event) => {
 		setSearchfield(event.target.value)
@@ -38,7 +38,7 @@ useEffect(()=> {
 		(
 			<div className="tc">
 				<h1 className="f1">RoboFriends</h1>
-				<SearchBox  searchChange={onSearchChange}/>
+				<SearchBox className="mb3" searchChange={onSearchChange}/>
 				<Scroll>
 					<CardList robots={ filteredRobots } />
 				</Scroll>
